@@ -3,4 +3,8 @@ spring:
     url: jdbc:${DATABASE_URL}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
-    name: spring-blog
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
