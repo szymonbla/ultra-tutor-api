@@ -1,0 +1,14 @@
+package com.ultra_tutor.ultra_tutor_api.model.command;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CreateCaptureCommand {
+    private String sourceUrl;
+    private String pageTitle;
+    private String faviconUrl;
+    private String selectedText;
+    private String surroundingParagraph;
+}
