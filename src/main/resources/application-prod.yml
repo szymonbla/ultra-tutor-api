@@ -1,18 +1,35 @@
 spring:
   datasource:
-    url: ${Postgres.DATABASE_URL}
+    url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
+        jdbc:
+          time_zone: UTC
+        connection:
+          provider_disables_autocommit: false
 
+# Production logging - less verbose
 logging:
   level:
-    org.springframework: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework: INFO
+    org.hibernate.SQL: INFO
+    com.zaxxer.hikari: INFO
+    org.postgresql: INFO
+    root: INFO
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      leak-detection-threshold: 60000
