@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: postgresql://postgres:KvOgunpeBkfEkuMcyDtBVyhIbLVnfUeD@shuttle.proxy.rlwy.net:50644/railway
+    url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
